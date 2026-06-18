@@ -8,29 +8,41 @@ function setup() {
 
   let button = createButton('hello');
   button.position(0, 80);
+  button.mousePressed(affichage);
   
-  button.mousePressed(texte);
-  
+  let button2 = createButton('good bye');
+  button2.position(180,150)
+  button2.mousePressed(bye)
 }
-  
-  function texte(){
-      if(etat == "masquer"){
-        etat = "afficher";
-      } else { 
-        etat = "masquer";
-      }
+
+function bye(){
+etat = "goodbye"
+}
+
+function affichage(){
+  etat = "afficher"
 }
 
 function draw() {
-  clear();
-  background(0,0,0);
-  textSize(25);
-  fill(100,100,100);
-  let button = createButton('good bye');
-  button.position(180,150) 
-  if(etat == "afficher") {
-    text("bonjour", 180, 200);
-  }
+
+        if(etat == "masquer"){
+         clear();
+          background(0,0,0);
+      }
+        if(etat == "afficher"){
+         background(0,0,0);
+         textSize(25);
+         fill(100,100,100);
+         text("bonjour", x, 200);
+      }
+       
+       if(etat == "goodbye"){
+         x = x + 1
+         background(0,0,0);
+         textSize(25);
+         fill(100,100,100);
+         text("bonjour", x, 200);
+      }
 }
 
   
